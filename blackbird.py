@@ -2434,7 +2434,7 @@ class login_instance:
                 
             soup=self.html_parser.get_soup(fileObject=e,parser=parser)
             bb_err = self.error_handler(soup,url,code,True)
-            LOG_warning("Error url: {!r}; code: {}".format(url),code)
+            LOG_warning("Error url: {!r}; code: {}".format(url,code))
             raise bb_err
         except urllib2.URLError as e:
             reason = e.reason
@@ -2512,7 +2512,7 @@ class login_instance:
             if not a_ent:
                 LOG_info("entry has no link, probably old. Skipping...")
                 continue
-            qry = parse_url(a_ent['href'])[1].get('url')
+            qry = a_ent['href'] #parse_url(a_ent['href'])[1].get('url')
             
             c_id = None
             if qry:
