@@ -497,7 +497,7 @@ def parse_course_name(name_str,part=4|2|1):
         CC              ::= <letter>+
         LOC             ::= <letter>{3}
         DEPARTMENT      ::= (<letter> | "_")+
-        COURSE_NUMBER   ::= <number>{3} ["H"]
+        COURSE_NUMBER   ::= <number>+ ["H"]
         SECTION         ::= <number> <letter>+ <number>{0,3} | "ALL"
         CLASS_NUMBER    ::= <number>{7}
         TERM            ::= SEMESTER YEAR
@@ -516,8 +516,8 @@ def parse_course_name(name_str,part=4|2|1):
     If you pass "MATH 001: INTRO TO SUBTRACTION (LAB 2E) SP1938", you would
         pass part=3.
     """
-    blackboard_course_id_re = re.compile(r'(?P<course_id>(?P<loc>[A-Z]{3})-(?P<dept>[A-Z_]+)-(?P<corsnum>[0-9]{3})H?-(?P<sect>[0-9][A-Z]+[0-9]{0,3}|ALL)-(?P<clsnum>[0-9]+)-(?P<term>(?P<sem>[FS][SP])(?P<year>20[01][0-9])))',re.I)
-    dept_id_re = re.compile(r'(?P<dept_id>(?P<dept>[A-Z_]+)\ (?P<corsnum>[0-9]{3}))',re.I)
+    blackboard_course_id_re = re.compile(r'(?P<course_id>(?P<loc>[A-Z]{3})-(?P<dept>[A-Z_]+)-(?P<corsnum>[0-9]+)H?-(?P<sect>[0-9][A-Z]+[0-9]{0,3}|ALL)-(?P<clsnum>[0-9]+)-(?P<term>(?P<sem>[FS][SP])(?P<year>20[01][0-9])))',re.I)
+    dept_id_re = re.compile(r'(?P<dept_id>(?P<dept>[A-Z_]+)\ (?P<corsnum>[0-9]+))',re.I)
     common_name_re = re.compile(r'(?P<common_name>(?P<name>[^(]+)(\ \((?P<sect>[^)]+)\))?(?P<term>\ (?P<sem>[FS][SP])(?P<year>[0-9]{4})))',re.I)
     cc_sect_re = re.compile(r'(?P<cc>[A-Z_]+)\ (?P<sect>.*)',re.I)
     sect_re = re.compile(r'[0-9][A-Z]+[0-9]{0,3}|ALL',re.I)
