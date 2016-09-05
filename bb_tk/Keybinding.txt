@@ -1,0 +1,24 @@
+Symbolism   Unicode Name            Type        Tk-sequence-value   Accelerator+P
+----------------------------------------------------------------------
+⇧           21E7    Shift           Modifier    Shift               
+⎇          2387    Alt             Modifier    Alt
+^           005E    Ctrl            Modifier    Control             
+⌘           2318    Command         Modifier    Command             "Command-P"
+⌥           2325    Option          Modifier    Option              "Option-P"
+
+
+
+Command         Windows         OS X
+---------------------------------------------
+Find            ^F              ⌘F
+Find-Next       ^G              ⌘G
+Find-Prev       ^⇧G             ⌘⇧G
+Undo            ^Z              ⌘Z
+Redo            ^⇧Z | ^R        ⌘⇧Z
+Help            F1              ⌘?
+Select-All      ^A              ⌘A
+Cut             ^X              ⌘X
+Copy            ^C              ⌘C
+Paste           ^V              ⌘V
+Quit/Exit       ^Q              ⌘Q
+
